@@ -1,103 +1,134 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Zap, FileText, Play } from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [apiResult, setApiResult] = useState<string>("");
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const handleApiCall = async () => {
+    try {
+      const response = await fetch("/koa");
+      const data = await response.json();
+      setApiResult(data.message);
+    } catch (error) {
+      setApiResult("API 调用失败");
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      {/* Header */}
+      <header className="border-b border-gray-800">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center space-x-3">
+            <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
+              <span className="text-xs font-medium">logo</span>
+            </div>
+            <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
+          </div>
         </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-4xl mx-auto px-6 py-16">
+        {/* Title and Description */}
+        <div className="text-center mb-12">
+          <h1 className="text-5xl font-bold mb-6">
+            Node Functions on EdgeOne Pages - Koa
+          </h1>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Node Functions 允许您在 Node Runtime
+            中运行代码,而无需管理服务器。借助其能力,您可以方便的在 Pages
+            开发部署基于 Koa 框架的全栈应用。
+          </p>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex justify-center gap-4 mb-12">
+          <Button
+            size="lg"
+            className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg"
+          >
+            <Zap className="mr-2 h-5 w-5" />
+            一键部署
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg"
+          >
+            <FileText className="mr-2 h-5 w-5" />
+            查看文档
+          </Button>
+        </div>
+
+        {/* Code Snippet Section */}
+        <Card className="bg-gray-900 border-gray-700 mb-8">
+          <CardHeader className="pb-3">
+            <CardTitle className="text-sm text-gray-400 font-mono">
+              ./node-functions/koa/[[default]].js
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="text-sm text-gray-200 font-mono leading-relaxed">
+              {`import Koa from 'koa';
+import Router from '@koa/router';
+
+// 创建 Koa 应用
+const app = new Koa();
+const router = new Router();
+
+// 添加一些中间件
+app.use(async (ctx, next) => {
+  const start = Date.now();
+  await next();
+  const ms = Date.now() - start;
+  ctx.set('X-Response-Time', \`$\{ms\}ms\`);
+});
+
+// 定义路由
+router.get('/', async (ctx) => {
+  ctx.body = { message: 'Hello from Koa on Node Functions!' };
+});
+
+
+// 使用路由中间件
+app.use(router.routes());
+app.use(router.allowedMethods());
+
+// 导出处理函数
+export default app;
+`}
+            </pre>
+          </CardContent>
+        </Card>
+
+        {/* API Call Demonstration */}
+        <Card className="bg-gray-900 border-gray-700">
+          <CardContent className="pt-6">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <Button
+                onClick={handleApiCall}
+                className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white"
+              >
+                <Play className="mr-2 h-4 w-4" />
+                执行 API 调用
+              </Button>
+              {apiResult && (
+                <div className="text-left">
+                  <p className="text-sm text-gray-400 mb-2">API 调用结果:</p>
+                  <p className="text-green-400 font-mono bg-gray-800 px-3 py-2 rounded">
+                    {apiResult}
+                  </p>
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
 }

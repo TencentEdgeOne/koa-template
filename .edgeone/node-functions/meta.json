@@ -1,0 +1,55 @@
+{
+  "routes": [
+    {
+      "routePath": "/koa/:default*",
+      "mountPath": "koa",
+      "method": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "PATCH",
+        "HEAD",
+        "OPTIONS"
+      ],
+      "module": [
+        "koa/[[default]].js:onRequest"
+      ],
+      "isFramework": true
+    },
+    {
+      "routePath": "/koa",
+      "mountPath": "koa",
+      "method": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "PATCH",
+        "HEAD",
+        "OPTIONS"
+      ],
+      "module": [
+        "koa/[[default]].js:onRequest"
+      ],
+      "isFramework": true
+    },
+    {
+      "routePath": "/koa",
+      "mountPath": "koa",
+      "method": [
+        "GET",
+        "POST",
+        "PUT",
+        "DELETE",
+        "PATCH",
+        "HEAD",
+        "OPTIONS"
+      ],
+      "module": [
+        "koa/[[default]].js:onRequest"
+      ],
+      "isFramework": true
+    }
+  ]
+}
