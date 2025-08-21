@@ -25,8 +25,8 @@ export default function Home() {
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center">
-                <span className="text-xs font-medium">logo</span>
+              <div className="w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
+                <img src="/eo-logo-white.svg" alt="EdgeOne Pages" width={32} height={32} />
               </div>
               <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
             </div>
@@ -72,7 +72,7 @@ export default function Home() {
         <div className="flex justify-center gap-4 mb-12">
           <Button
             size="lg"
-            className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg"
+            className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg cursor-pointer"
           >
             <Zap className="mr-2 h-5 w-5" />
             一键部署
@@ -80,7 +80,7 @@ export default function Home() {
           <Button
             variant="outline"
             size="lg"
-            className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg"
+            className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg cursor-pointer"
           >
             <FileText className="mr-2 h-5 w-5" />
             查看文档
@@ -134,7 +134,7 @@ export default app;
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <Button
                 onClick={handleApiCall}
-                className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white"
+                className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
               >
                 <Play className="mr-2 h-4 w-4" />
                 执行 API 调用
