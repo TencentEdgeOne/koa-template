@@ -7,14 +7,18 @@ import { Zap, FileText, Play } from "lucide-react";
 
 export default function Home() {
   const [apiResult, setApiResult] = useState<string>("");
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleApiCall = async () => {
+    setIsLoading(true)
     try {
       const response = await fetch("/koa");
       const data = await response.json();
       setApiResult(data.message);
     } catch (error) {
       setApiResult("API call failed");
+    } finally {
+      setIsLoading(false)
     }
   };
 
@@ -134,13 +138,18 @@ export default app;
         <Card className="bg-gray-900 border-gray-700">
           <CardContent className="pt-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <Button
-                onClick={handleApiCall}
-                className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
-              >
-                <Play className="mr-2 h-4 w-4" />
-                Execute API Call
-              </Button>
+              <Button 
+                  onClick={handleApiCall}
+                  disabled={isLoading}
+                  className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
+                >
+                  {isLoading ? (
+                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                  ) : (
+                    <Play className="w-4 h-4 mr-2" />
+                  )}
+                  Execute API Call
+                </Button>
               {apiResult && (
                 <div className="text-left">
                   <p className="text-sm text-gray-400 mb-2">API Call Result:</p>
