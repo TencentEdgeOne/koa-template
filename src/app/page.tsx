@@ -14,7 +14,7 @@ export default function Home() {
       const data = await response.json();
       setApiResult(data.message);
     } catch (error) {
-      setApiResult("API 调用失败");
+      setApiResult("API call failed");
     }
   };
 
@@ -64,9 +64,7 @@ export default function Home() {
             Node Functions on EdgeOne Pages - Koa
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Node Functions 允许您在 Node Runtime
-            中运行代码,而无需管理服务器。借助其能力,您可以方便的在 Pages
-            开发部署基于 Koa 框架的全栈应用。
+            Node Functions allow you to run code in a Node Runtime without managing servers. With its capabilities, you can easily develop and deploy full-stack applications based on the Koa framework on EdgeOne Pages.
           </p>
         </div>
 
@@ -77,7 +75,7 @@ export default function Home() {
             className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg cursor-pointer"
           >
             <Zap className="mr-2 h-5 w-5" />
-            一键部署
+            Deploy Now
           </Button>
           <Button
             variant="outline"
@@ -85,7 +83,7 @@ export default function Home() {
             className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg cursor-pointer"
           >
             <FileText className="mr-2 h-5 w-5" />
-            查看文档
+            View Docs
           </Button>
         </div>
 
@@ -101,11 +99,11 @@ export default function Home() {
               {`import Koa from 'koa';
 import Router from '@koa/router';
 
-// 创建 Koa 应用
+// Create Koa application
 const app = new Koa();
 const router = new Router();
 
-// 添加一些中间件
+// Add some middleware
 app.use(async (ctx, next) => {
   const start = Date.now();
   await next();
@@ -113,17 +111,17 @@ app.use(async (ctx, next) => {
   ctx.set('X-Response-Time', \`$\{ms\}ms\`);
 });
 
-// 定义路由
+// Define routes
 router.get('/', async (ctx) => {
   ctx.body = { message: 'Hello from Koa on Node Functions!' };
 });
 
 
-// 使用路由中间件
+// Use router middleware
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-// 导出处理函数
+// Export the handler
 export default app;
 `}
             </pre>
@@ -139,11 +137,11 @@ export default app;
                 className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
               >
                 <Play className="mr-2 h-4 w-4" />
-                执行 API 调用
+                Execute API Call
               </Button>
               {apiResult && (
                 <div className="text-left">
-                  <p className="text-sm text-gray-400 mb-2">API 调用结果:</p>
+                  <p className="text-sm text-gray-400 mb-2">API Call Result:</p>
                   <p className="text-green-400 font-mono bg-gray-800 px-3 py-2 rounded">
                     {apiResult}
                   </p>

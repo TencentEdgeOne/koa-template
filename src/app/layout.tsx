@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Node Functions on EdgeOne Pages - Koa",
-  description: "Node Functions 允许您在 Node Runtime 中运行代码,而无需管理服务器。",
+  description: "Node Functions allow you to run code in a Node Runtime without managing servers.",
 };
 
 export default function RootLayout({
@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN" className="dark">
+    <html lang="en" className="dark">
       <body className="antialiased">
         {children}
       </body>
