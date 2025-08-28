@@ -70,13 +70,15 @@ export default function Home() {
 
         {/* Action Buttons */}
         <div className="flex justify-center gap-4 mb-12">
-          <Button
-            size="lg"
-            className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg cursor-pointer"
-          >
-            <Zap className="mr-2 h-5 w-5" />
-            Deploy Now
-          </Button>
+          <a href="https://edgeone.ai/pages/new?from=github&template=koa-template" target="_blank" rel="noopener noreferrer">
+            <Button
+              size="lg"
+              className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white px-8 py-3 text-lg cursor-pointer"
+            >
+              <Zap className="mr-2 h-5 w-5" />
+              Deploy Now
+            </Button>
+          </a>
           <Button
             variant="outline"
             size="lg"
