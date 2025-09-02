@@ -83,6 +83,7 @@ export default function Home() {
               Deploy Now
             </Button>
           </a>
+          <a href="https://edgeone.ai/document/187318055541846016" target="_blank" rel="noopener noreferrer">
           <Button
             variant="outline"
             size="lg"
@@ -91,6 +92,7 @@ export default function Home() {
             <FileText className="mr-2 h-5 w-5" />
             View Docs
           </Button>
+          </a>
         </div>
 
         {/* Code Snippet Section */}
