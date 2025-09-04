@@ -28,13 +28,13 @@ export default function Home() {
       <header className="border-b border-gray-800">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <a href="/" target="_blank" rel="noopener noreferrer">
-            <div className="flex items-center space-x-3">
-              <div className="w-6 h-6rounded-full flex items-center justify-center">
-                <img src="/eo-logo-blue.svg" alt="EdgeOne Pages" width={32} height={32} />
+            <a href="https://pages.edgeone.ai" target="_blank" rel="noopener noreferrer">
+              <div className="flex items-center space-x-3">
+                <div className="w-6 h-6rounded-full flex items-center justify-center">
+                  <img src="/eo-logo-blue.svg" alt="EdgeOne Pages" width={32} height={32} />
+                </div>
+                <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
               </div>
-              <h1 className="text-lg font-semibold">EdgeOne Pages</h1>
-            </div>
             </a>
             <a
               href="https://github.com/TencentEdgeOne/koa-template"
@@ -84,14 +84,14 @@ export default function Home() {
             </Button>
           </a>
           <a href="https://pages.edgeone.ai/document/node-functions" target="_blank" rel="noopener noreferrer">
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg cursor-pointer"
-          >
-            <FileText className="mr-2 h-5 w-5" />
-            View Docs
-          </Button>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-gray-600 text-white hover:bg-gray-800 px-8 py-3 text-lg cursor-pointer"
+            >
+              <FileText className="mr-2 h-5 w-5" />
+              View Docs
+            </Button>
           </a>
         </div>
 
@@ -140,18 +140,18 @@ export default app;
         <Card className="bg-gray-900 border-gray-700">
           <CardContent className="pt-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <Button 
-                  onClick={handleApiCall}
-                  disabled={isLoading}
-                  className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
-                >
-                  {isLoading ? (
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                  ) : (
-                    <Play className="w-4 h-4 mr-2" />
-                  )}
-                  Execute API Call
-                </Button>
+              <Button
+                onClick={handleApiCall}
+                disabled={isLoading}
+                className="bg-[#1c66e5] hover:bg-[#1c66e5]/90 text-white cursor-pointer"
+              >
+                {isLoading ? (
+                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                ) : (
+                  <Play className="w-4 h-4 mr-2" />
+                )}
+                Execute API Call
+              </Button>
               {apiResult && (
                 <div className="text-left">
                   <p className="text-sm text-gray-400 mb-2">API Call Result:</p>
