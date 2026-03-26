@@ -1,6 +1,6 @@
-# Node Functions on EdgeOne Pages - Koa Demo Website
+# Cloud Functions on EdgeOne Pages - Koa Demo Website
 
-A demonstration website for function requests developed with Next.js + Tailwind CSS + shadcn/ui technology stack, showcasing how to deploy and run Node Functions based on the Koa framework on EdgeOne Pages.
+A demonstration website for function requests developed with Next.js + Tailwind CSS + shadcn/ui technology stack, showcasing how to deploy and run Cloud Functions based on the Koa framework on EdgeOne Pages.
 
 ## 🚀 Features
 
@@ -26,7 +26,7 @@ A demonstration website for function requests developed with Next.js + Tailwind 
 
 ### Backend
 - **Express.js** - Node.js Web application framework
-- **Node Functions** - EdgeOne Pages serverless function
+- **Cloud Functions** - EdgeOne Pages serverless function
 
 ## 📁 Project Structure
 
@@ -128,17 +128,17 @@ Using `class-variance-authority` to manage component style variants, supporting 
 5. Configure the output directory: `.next`
 6. Deploy the project
 
-### Node Functions Configuration
+### Cloud Functions Configuration
 
-Create a `node-functions/` folder in the project root directory, adding an Express application:
+Create a `cloud-functions/` folder in the project root directory, adding an Express application:
 
 ```javascript
-// node-functions/express/[[default]].js
+// cloud-functions/express/[[default]].js
 import express from "express";
 const app = express();
 
 app.get("/", (req, res) => {
-  res.json({ message: "Hello from Express on Node Functions!" });
+  res.json({ message: "Hello from Express on Cloud Functions!" });
 });
 
 export default app;
