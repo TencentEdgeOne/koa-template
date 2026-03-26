@@ -99,7 +99,7 @@ export default function Home() {
         <Card className="bg-gray-900 border-gray-700 mb-8">
           <CardHeader className="pb-3">
             <CardTitle className="text-sm text-gray-400 font-mono">
-              ./node-functions/koa/[[default]].js
+              ./cloud-functions/koa/[[default]].js
             </CardTitle>
           </CardHeader>
           <CardContent>
