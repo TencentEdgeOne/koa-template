@@ -65,10 +65,10 @@ export default function Home() {
         {/* Title and Description */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold mb-6">
-            Node Functions on EdgeOne Pages - Koa
+            Cloud Functions on EdgeOne Pages - Koa
           </h1>
           <p className="text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Node Functions allow you to run code in a Node Runtime without managing servers. With its capabilities, you can easily develop and deploy full-stack applications based on the Koa framework on EdgeOne Pages.
+            Cloud Functions allow you to run code in a Node.js Runtime without managing servers. With its capabilities, you can easily develop and deploy full-stack applications based on the Koa framework on EdgeOne Pages.
           </p>
         </div>
 
@@ -121,7 +121,7 @@ app.use(async (ctx, next) => {
 
 // Define routes
 router.get('/', async (ctx) => {
-  ctx.body = { message: 'Hello from Koa on Node Functions!' };
+  ctx.body = { message: 'Hello from Koa on Cloud Functions!' };
 });
 
 

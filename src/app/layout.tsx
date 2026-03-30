@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Node Functions on EdgeOne Pages - Koa",
-  description: "Node Functions allow you to run code in a Node Runtime without managing servers.",
+  title: "Cloud Functions on EdgeOne Pages - Koa",
+  description: "Cloud Functions allow you to run code in a Node Runtime without managing servers.",
 };
 
 export default function RootLayout({

@@ -1,4 +1,4 @@
-# 🎉 Node Functions 演示网站 - 开发完成！
+# 🎉 Cloud Functions 演示网站 - 开发完成！
 
 ## ✅ 项目状态
 

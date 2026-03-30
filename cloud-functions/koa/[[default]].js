@@ -15,7 +15,7 @@ app.use(async (ctx, next) => {
 
 // Define routes
 router.get('/', async (ctx) => {
-  ctx.body = { message: 'Hello from Koa on Node Functions!' };
+  ctx.body = { message: 'Hello from Koa on Cloud Functions!' };
 });
 
 // Use router middleware
